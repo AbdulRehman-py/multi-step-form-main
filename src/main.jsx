@@ -5,6 +5,6 @@ import Personal from './Personal.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Personal />
+    <Personal/>
   </StrictMode>,
 )
