@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div>
+      <div className="personal-info">
         <h1>Personal Info</h1>
         <p>Please provide your name, email address, and phone number.</p>
         <form action="submit">

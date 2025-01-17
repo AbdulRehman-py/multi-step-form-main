@@ -1,42 +1,76 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  --Coolgray: hsl(231, 11%, 63%);
+  --Lightgray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+  --Black: hsl(0, 0%, 0%);
+  --Marineblue: hsl(213, 96%, 18%);
+  --Purplishblue: hsl(243, 100%, 62%);
+  --Pastelblue: hsl(228, 100%, 84%);
+  --Lightblue: hsl(206, 94%, 87%);
+  --Strawberryred: hsl(354, 84%, 57%);
+
+
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.input-container input:-webkit-autofill,
+.input-container input:-webkit-autofill:hover,
+.input-container input:-webkit-autofill:focus,
+.input-container input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--White) inset !important;
+  -webkit-text-fill-color: var(--Coolgray) !important;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.personal-info {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1 {
+  color: var(--Marineblue);
+  padding: 0;
+  margin: 0;
 }
 
-.card {
-  padding: 2em;
+p {
+  padding: 0.5rem 0;
+  margin: 0;
+  color: var(--Coolgray);
 }
 
-.read-the-docs {
-  color: #888;
+form {
+  margin-top: 2rem;
 }
+
+.input-container{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.input-container label {
+  color: var(--Marineblue);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 1rem 0 0.3rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input {
+  padding: 0.5rem;
+  border: 1px solid var(--Lightblue);
+  border-radius: 7px;
+  background-color: var(--White);
+  color: var(--Marineblue);
+  outline: none;
+}
+
+button {
+  align-self: flex-end;
+  margin-top: 3rem;
+}
+
