@@ -22,8 +22,7 @@ body {
 
   color-scheme: light dark;
   color: var(--White);
-  background-color: #f9f9f9;
-
+  background-color: var(--Lightgray);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -79,3 +78,16 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#root {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--White);
+  border-radius: 10px;
+  padding: 1.5rem;
+
+  
+  
+   
+}
+
