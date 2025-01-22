@@ -8,14 +8,12 @@
     background-image: url('assets/images/bg-sidebar-desktop.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 2rem 4rem 3rem 3rem;
-    display: flex;
-    justify-content: left;
-    align-items: left;
+    padding: 2rem 4rem 12rem 3rem;
     font-family: monospace;
     outline: none;
     border: none;
     border-radius: 10px;
+
 }
 
 ol {
