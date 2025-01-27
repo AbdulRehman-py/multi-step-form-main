@@ -1,6 +1,10 @@
 import "./App.css";
 
-const Personal = () => {
+import PropTypes from 'prop-types';
+
+const Personal = ({goToNextPage}) => {
+
+  
   
 
   return (
@@ -21,12 +25,16 @@ const Personal = () => {
             <label htmlFor="phone">Phone Number</label>
             <input type="tel" id="phone" placeholder="eg. +1 301 525 987" />
           </div>
-          <button type="button" >Next</button>
+          <button type="button" onClick={goToNextPage} >Next</button>
         </form>
       </div>
     </>
   );
 };
-
+Personal.propTypes = {
+  goToNextPage: PropTypes.func.isRequired,
+};
 
 export default Personal;
+
+

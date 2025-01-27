@@ -1,7 +1,8 @@
 import './add-on.css';
+import PropTypes from 'prop-types';
 
 
-const AddOn = () => {
+const AddOn = ({goToNextPage,goToPreviousPage }) => {
   return (
     <div className="add-on-container">
       <h1>Pick Add-ons</h1>
@@ -39,11 +40,15 @@ const AddOn = () => {
         </div>
       </div>
       <div className="navigation-buttons">
-        <button className="go-back">Go Back</button>
-        <button className="next-step">Next Step</button>
+        <button className="go-back" onClick={goToPreviousPage}>Go Back</button>
+        <button className="next-step" onClick={goToNextPage}>Next Step</button>
       </div>
     </div>
   );
+};
+AddOn.propTypes = {
+  goToNextPage: PropTypes.func.isRequired,
+  goToPreviousPage: PropTypes.func.isRequired,
 };
 
 export default AddOn;

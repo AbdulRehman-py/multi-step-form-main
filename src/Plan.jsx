@@ -1,9 +1,11 @@
 import './plan.css';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import './ToggleSwitch.css';
 
 
-const SelectPlan = () => {
+
+const SelectPlan = ({goToPreviousPage,goToNextPage}) => {
     const [isToggled, setIsToggled] = useState(false);
 
     const handleToggle = () => {
@@ -39,11 +41,15 @@ const SelectPlan = () => {
                             Yearly
                         </div>
                     <div className='navigation-buttons'>
-                        <button className='back'>Go Back</button>
-                        <button >Next</button>
+                        <button className='back' onClick={goToPreviousPage}>Go Back</button>
+                        <button onClick={goToNextPage} >Next</button>
                     </div>
                 </div>
     );
+};
+SelectPlan.propTypes = {
+    goToPreviousPage: PropTypes.func.isRequired,
+    goToNextPage: PropTypes.func.isRequired,
 };
 
 export default SelectPlan;

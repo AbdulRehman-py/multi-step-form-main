@@ -1,6 +1,7 @@
 import './summary.css';
+import PropTypes from 'prop-types';
 
-const Summary = () => {
+const Summary = ({goToPreviousPage ,SubmitButton}) => {
     return (
         <div className="Summary">
             <h1>Finishing up</h1>
@@ -29,12 +30,16 @@ const Summary = () => {
                 <span>{"1$"}</span>
             </div>
             <div className="confirm-button">
-                <button>go back</button>
-                <button>Confirm</button>
+                <button onClick={goToPreviousPage}>go back</button>
+                <button onClick={SubmitButton}>Confirm</button>
             </div>
 
         </div>
     );
+};
+Summary.propTypes = {
+    goToPreviousPage: PropTypes.func.isRequired,
+    SubmitButton: PropTypes.func.isRequired,
 };
 
 export default Summary;
