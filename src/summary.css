@@ -88,4 +88,10 @@
     margin-top: auto; /* Push the buttons to the bottom */
   }
 
-  
+  .total {
+    color: var(--Coolgray);
+    font-size: 1rem;
+    justify-content: space-between;
+    display: flex;
+    padding: 1rem 1rem 0 1rem;
+  }

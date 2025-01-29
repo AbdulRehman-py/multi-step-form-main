@@ -1,11 +1,11 @@
 import "./App.css";
-import { useState } from "react";
-import PropTypes from 'prop-types';
+import { useContext, useState } from "react";
+import PropTypes from "prop-types";
+import { DataContext } from "./StatePersonal.jsx";
 
 const Personal = ({ goToNextPage }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const { personalInfo, setPersonalInfo } = useContext(DataContext);
+
   const [isValidName, setIsValidName] = useState(true);
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPhone, setIsValidPhone] = useState(true);
@@ -22,9 +22,10 @@ const Personal = ({ goToNextPage }) => {
   };
 
   const handleNextPage = () => {
-    const isValidName = validate(name, "name");
-    const isValidEmail = validate(email, "email");
-    const isValidPhone = validate(phone, "phone");
+
+    const isValidName = validate(personalInfo.name, "name");
+    const isValidEmail = validate(personalInfo.email, "email");
+    const isValidPhone = validate(personalInfo.phone, "phone");
 
     setIsValidName(isValidName);
     setIsValidEmail(isValidEmail);
@@ -49,13 +50,12 @@ const Personal = ({ goToNextPage }) => {
               type="text"
               id="name"
               placeholder="eg. Roger Clark"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-                setIsValidName(true); // Reset validation on change
-              }}
+              value={personalInfo.name}
+              onChange={(e) =>
+                setPersonalInfo({ ...personalInfo, name: e.target.value })
+              }
               style={{
-                border: isValidName ? '1px solid black' : '1px solid red',
+                border: isValidName ? "1px solid lightblue" : "1px solid red",
               }}
             />
           </div>
@@ -65,33 +65,35 @@ const Personal = ({ goToNextPage }) => {
               type="email"
               id="email"
               placeholder="RogerClark@gmail.com"
-              value={email}
+              value={personalInfo.email}
               onChange={(e) => {
-                setEmail(e.target.value);
+                setPersonalInfo({ ...personalInfo, email: e.target.value });
                 setIsValidEmail(true); // Reset validation on change
               }}
               style={{
-                border: isValidEmail ? '1px solid black' : '1px solid red',
+                border: isValidEmail ? "1px solid lightblue" : "1px solid red",
               }}
             />
           </div>
           <div className="input-container">
             <label htmlFor="phone">Phone Number</label>
             <input
-              type="number"
+              type="tel"
               id="phone"
               placeholder="eg. +1 301 525 987"
-              value={phone}
+              value={personalInfo.phone}
               onChange={(e) => {
-                setPhone(e.target.value);
+                setPersonalInfo({ ...personalInfo, phone: e.target.value });
                 setIsValidPhone(true); // Reset validation on change
               }}
               style={{
-                border: isValidPhone ? '1px solid black' : '1px solid red',
+                border: isValidPhone ? "1px solid lightblue" : "1px solid red",
               }}
             />
           </div>
-          <button type="button" onClick={handleNextPage}>Next</button>
+          <button type="button" onClick={handleNextPage}>
+            Next
+          </button>
         </form>
       </div>
     </>
