@@ -8,6 +8,7 @@ import Summary from "./Summary.jsx";
 import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 import { DataProvider } from "./StatePersonal.jsx";
+import { PlanProvider } from "./plancontext.jsx";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,7 +67,9 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <DataProvider>
+      <PlanProvider>
       <App />
+      </PlanProvider>
     </DataProvider>
   </StrictMode>
 );
