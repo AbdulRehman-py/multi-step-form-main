@@ -8,12 +8,17 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
   const [isToggled, setIsToggled] = useState(false);
 
   const { plandata, setPlandata } = useContext(planContext);
+  const [SelectPlan, setSelectPlan] = useState(null);
 
-  const handleSelectPlan = (plan) => {
+
+    
+
+  const handleSelectPlan = (plan,planname) => {
     setPlandata((prevPlan) => ({
       ...prevPlan,
       ...plan,
     }));
+    setSelectPlan(planname);
   };
 
   console.log(plandata);
@@ -28,14 +33,13 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
       <p>You have the option of monthly or yearly billing</p>
       <div className="plans">
         <article
-          className="plan plan1"
+          className={`plan plan1 ${SelectPlan === "arcade" ? "selected" : ""}`}
           onClick={() => {
-            alert("click 1");
             handleSelectPlan({
               tier: "arcade",
               price: "9$",
               monthly: isToggled ? "yearly" : "/mon",
-            });
+            }, "arcade");
           }}
         >
           <img src="assets/images/icon-arcade.svg" alt="arcade image" />
@@ -43,14 +47,13 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
           <small>$9/mo</small>
         </article>
         <article
-          className="plan plan2"
+          className={`plan plan2 ${SelectPlan === "advanced" ? "selected" : ""}`}
           onClick={() => {
-            alert("click 2");
             handleSelectPlan({
               tier: "advanced",
               price: "12$",
               monthly: isToggled ? "yearly" : "/mon",
-            });
+            }, "advanced");
           }}
         >
           <img
@@ -61,14 +64,13 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
           <small>$12/mo</small>
         </article>
         <article
-          className="plan plan3"
+          className={`plan plan3 ${SelectPlan === "pro" ? "selected" : ""}`}
           onClick={() => {
-            alert("click 3");
             handleSelectPlan({
               tier: "pro",
               price: "15",
               monthly: isToggled ? "yearly" : "/mon",
-            });
+            }, "pro");
           }}
         >
           <img src="assets/images/icon-pro.svg" alt="pro plan image" />

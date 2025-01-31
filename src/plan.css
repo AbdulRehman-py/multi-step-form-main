@@ -16,6 +16,7 @@
     padding: 0.7rem 1.3rem 0.7rem 1rem;
     border-radius: 10px;
     outline: none;
+    transition: border-color 0.3s;
 
     
 }
@@ -68,3 +69,7 @@ h1 {
     font-size: 1.8rem;
    }
 }
+
+.selected {
+    border: 1px solid hsl(354, 84%, 57%);
+  }
