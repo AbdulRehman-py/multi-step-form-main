@@ -1,15 +1,34 @@
 import './add-on.css';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { AddOnContext } from './addOnContext';
+
 
 
 const AddOn = ({goToNextPage,goToPreviousPage }) => {
+
+  const { addOns, setAddOns } = useContext(AddOnContext);
+
+  console.log(addOns);
+
+  const handleAddOns = (addon) => {
+   setAddOns((prev)=> ({
+    ...prev,
+    ...addon,
+   }))
+  }
   return (
     <div className="add-on-container">
       <h1>Pick Add-ons</h1>
       <p>Add-ons help enhance your gaming experience.</p>
       <div className="add-ons">
         <div className="add-on">
-          <input type="checkbox" id="online-service" />
+          <input type="checkbox" id="online-service" onChange={() => {
+          handleAddOns({
+            onlineservice: "online-service",
+            onlinneprice: "1$/mon",
+          });
+        }}/>
           <label htmlFor="online-service">
             <div className="text-content">
               <span className="title">Online service</span>
@@ -19,7 +38,12 @@ const AddOn = ({goToNextPage,goToPreviousPage }) => {
           </label>
         </div>
         <div className="add-on">
-          <input type="checkbox" id="larger-storage" />
+          <input type="checkbox" id="larger-storage" onChange={() => {
+          handleAddOns({
+            largerstorage: "larger-storage",
+            largerprice: "2$/mon",
+          });
+        }}/>
           <label htmlFor="larger-storage">
             <div className="text-content">
               <span className="title">Larger storage</span>
@@ -29,7 +53,12 @@ const AddOn = ({goToNextPage,goToPreviousPage }) => {
           </label>
         </div>
         <div className="add-on">
-          <input type="checkbox" id="customizable-profile" />
+          <input type="checkbox" id="customizable-profile" onChange={() => {
+          handleAddOns({
+            customizableprofile: "customizable-profile",
+            customizableprice: "2$/mon",
+          });
+        }}/>
           <label htmlFor="customizable-profile">
             <div className="text-content">
               <span className="title">Customizable Profile</span>

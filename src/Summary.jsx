@@ -2,9 +2,11 @@ import "./summary.css";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { planContext } from "./plancontext.jsx";
+import { AddOnContext } from "./addOnContext.jsx";
 
 const Summary = ({ goToPreviousPage, SubmitButton }) => {
   const { plandata } = useContext(planContext);
+  const { addOns } = useContext(AddOnContext);
 
   return (
     <div className="Summary">
@@ -20,12 +22,16 @@ const Summary = ({ goToPreviousPage, SubmitButton }) => {
           <span className="price-plan">{`${plandata.price}${plandata.monthly}`}</span>
         </div>
         <div className="add-content">
-          <span>Online Service</span>
-          <span className="add-price">{"9$"}</span>
+          <span>{addOns.onlineservice}</span>
+          <span className="add-price">{addOns.onlinneprice}</span>
         </div>
         <div className="add-content">
-          <span>Larger Storage</span>
-          <span className="add-price">{"2$"}</span>
+          <span>{addOns.largerstorage}</span>
+          <span className="add-price">{addOns.largerprice}</span>
+        </div>
+        <div className="add-content">
+          <span>{addOns.customizableprofile}</span>
+          <span className="add-price">{addOns.customizableprice}</span>
         </div>
       </div>
 

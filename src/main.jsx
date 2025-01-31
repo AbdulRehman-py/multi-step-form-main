@@ -9,6 +9,7 @@ import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 import { DataProvider } from "./StatePersonal.jsx";
 import { PlanProvider } from "./plancontext.jsx";
+import { AddOnProvider } from "./addOnContext.jsx";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,10 +67,12 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
+    <AddOnProvider>
     <DataProvider>
       <PlanProvider>
       <App />
       </PlanProvider>
     </DataProvider>
+    </AddOnProvider>
   </StrictMode>
 );

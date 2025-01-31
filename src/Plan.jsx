@@ -38,7 +38,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
             handleSelectPlan({
               tier: "arcade",
               price: "9$",
-              monthly: isToggled ? "yearly" : "/mon",
+              monthly: isToggled ? "/yr" : "/mon",
             }, "arcade");
           }}
         >
@@ -52,7 +52,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
             handleSelectPlan({
               tier: "advanced",
               price: "12$",
-              monthly: isToggled ? "yearly" : "/mon",
+              monthly: isToggled ? "/yr" : "/mon",
             }, "advanced");
           }}
         >
@@ -68,8 +68,8 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
           onClick={() => {
             handleSelectPlan({
               tier: "pro",
-              price: "15",
-              monthly: isToggled ? "yearly" : "/mon",
+              price: "$15",
+              monthly: isToggled ? "/yr" : "/mon",
             }, "pro");
           }}
         >
