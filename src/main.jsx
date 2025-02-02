@@ -26,6 +26,9 @@ const App = () => {
     alert("Thank you for your purchase!");
   };
 
+  const changeplan = () => {
+    setCurrentPage((prev) => prev - 2);
+  }
   const render = () => {
     switch (currentPage) {
       case 1:
@@ -48,6 +51,7 @@ const App = () => {
         return (
           <Summary
             goToPreviousPage={goToPreviousPage}
+            changeplan={changeplan}
             SubmitButton={SubmitButton}
           />
         );

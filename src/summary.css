@@ -95,3 +95,15 @@
     display: flex;
     padding: 1rem 1rem 0 1rem;
   }
+
+  .change {
+    cursor: pointer;
+    color: var(--Purplishblue);
+    font-size: 0.9rem;
+
+  }
+
+  .change:hover {
+    text-decoration: underline;
+  }
+  

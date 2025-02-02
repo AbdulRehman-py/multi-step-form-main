@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { planContext } from "./plancontext.jsx";
 import { AddOnContext } from "./addOnContext.jsx";
 
-const Summary = ({ goToPreviousPage, SubmitButton }) => {
+const Summary = ({ goToPreviousPage, SubmitButton, changeplan }) => {
   const { plandata } = useContext(planContext);
   const { addOns } = useContext(AddOnContext);
 
@@ -34,7 +34,9 @@ const Summary = ({ goToPreviousPage, SubmitButton }) => {
         <div className="content">
           <div className="column">
             <span className="plan-choose">{plandata.tier}</span>
-            <span className="change">change</span>
+            <span className="change" onClick={changeplan}>
+              change
+            </span>
           </div>
           <span className="price-plan">{`${plandata.price}${plandata.monthly}`}</span>
         </div>
@@ -66,6 +68,7 @@ const Summary = ({ goToPreviousPage, SubmitButton }) => {
 Summary.propTypes = {
   goToPreviousPage: PropTypes.func.isRequired,
   SubmitButton: PropTypes.func.isRequired,
+  changeplan: PropTypes.func.isRequired,
 };
 
 export default Summary;
