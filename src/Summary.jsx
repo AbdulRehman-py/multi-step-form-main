@@ -8,6 +8,23 @@ const Summary = ({ goToPreviousPage, SubmitButton }) => {
   const { plandata } = useContext(planContext);
   const { addOns } = useContext(AddOnContext);
 
+  const extractNumericValue = (price) => {
+    if (!price) return 0; // Return 0 if price is undefined or null
+    const match = price.match(/\d+/);
+    return match ? parseInt(match[0], 10) : 0;
+  };
+
+  // Calculate the total price
+  const totalPrice =
+    extractNumericValue(plandata.price) +
+    extractNumericValue(addOns.onlineserviceprice) +
+    extractNumericValue(addOns.largerstorageprice) +
+    extractNumericValue(addOns.customizableprofileprice);
+
+  const mon_yr = plandata.monthly === "/mon" ? "mon" : "yr";
+
+  const validtotalprice = mon_yr === "yr" ? totalPrice * 12 : totalPrice;
+
   return (
     <div className="Summary">
       <h1>Finishing up</h1>
@@ -37,7 +54,7 @@ const Summary = ({ goToPreviousPage, SubmitButton }) => {
 
       <div className="total">
         <span>Total</span>
-        <span>{"1$"}</span>
+        <span>{`$${validtotalprice}/${mon_yr}`}</span>
       </div>
       <div className="confirm-button">
         <button onClick={goToPreviousPage}>go back</button>
