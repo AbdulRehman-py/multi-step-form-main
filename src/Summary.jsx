@@ -23,15 +23,15 @@ const Summary = ({ goToPreviousPage, SubmitButton }) => {
         </div>
         <div className="add-content">
           <span>{addOns.onlineservice}</span>
-          <span className="add-price">{addOns.onlinneprice}</span>
+          <span className="add-price">{addOns.onlineserviceprice}</span>
         </div>
         <div className="add-content">
           <span>{addOns.largerstorage}</span>
-          <span className="add-price">{addOns.largerprice}</span>
+          <span className="add-price">{addOns.largerstorageprice}</span>
         </div>
         <div className="add-content">
           <span>{addOns.customizableprofile}</span>
-          <span className="add-price">{addOns.customizableprice}</span>
+          <span className="add-price">{addOns.customizableprofileprice}</span>
         </div>
       </div>
 

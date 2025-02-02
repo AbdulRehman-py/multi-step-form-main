@@ -7,28 +7,22 @@ import { AddOnContext } from './addOnContext';
 
 const AddOn = ({goToNextPage,goToPreviousPage }) => {
 
-  const { addOns, setAddOns } = useContext(AddOnContext);
+ const {addOns, handleAddOns} = useContext(AddOnContext);
 
-  console.log(addOns);
+ const handleCheckboxChange = (name, price) => {
+  handleAddOns(name, !addOns[name], price);
+};
 
-  const handleAddOns = (addon) => {
-   setAddOns((prev)=> ({
-    ...prev,
-    ...addon,
-   }))
-  }
+ 
   return (
     <div className="add-on-container">
       <h1>Pick Add-ons</h1>
       <p>Add-ons help enhance your gaming experience.</p>
       <div className="add-ons">
         <div className="add-on">
-          <input type="checkbox" id="online-service" onChange={() => {
-          handleAddOns({
-            onlineservice: "online-service",
-            onlinneprice: "1$/mon",
-          });
-        }}/>
+          <input type="checkbox" id="online-service"
+          checked={!!addOns.onlineservice}
+          onChange={() => handleCheckboxChange("onlineservice", "1$/mo")}/>
           <label htmlFor="online-service">
             <div className="text-content">
               <span className="title">Online service</span>
@@ -38,12 +32,8 @@ const AddOn = ({goToNextPage,goToPreviousPage }) => {
           </label>
         </div>
         <div className="add-on">
-          <input type="checkbox" id="larger-storage" onChange={() => {
-          handleAddOns({
-            largerstorage: "larger-storage",
-            largerprice: "2$/mon",
-          });
-        }}/>
+          <input type="checkbox" id="larger-storage"   checked={!!addOns.largerstorage}
+            onChange={() => handleCheckboxChange("largerstorage", "2$/mo")}/>
           <label htmlFor="larger-storage">
             <div className="text-content">
               <span className="title">Larger storage</span>
@@ -53,12 +43,9 @@ const AddOn = ({goToNextPage,goToPreviousPage }) => {
           </label>
         </div>
         <div className="add-on">
-          <input type="checkbox" id="customizable-profile" onChange={() => {
-          handleAddOns({
-            customizableprofile: "customizable-profile",
-            customizableprice: "2$/mon",
-          });
-        }}/>
+          <input type="checkbox" id="customizable-profile" checked={!!addOns.customizableprofile}
+          onChange={() => handleCheckboxChange("customizableprofile", "2$/mo")}
+          />
           <label htmlFor="customizable-profile">
             <div className="text-content">
               <span className="title">Customizable Profile</span>
