@@ -10,9 +10,15 @@ import { StrictMode } from "react";
 import { DataProvider } from "./StatePersonal.jsx";
 import { PlanProvider } from "./plancontext.jsx";
 import { AddOnProvider } from "./addOnContext.jsx";
+import SuccessMessage from "./SuccessMessage.jsx";
 
 const App = () => {
+  const root_div = document.getElementById("root");
   const [currentPage, setCurrentPage] = useState(1);
+
+  if (currentPage == 5) {
+    root_div.classList.add("success-change");
+  }
 
   const goToNextPage = () => {
     setCurrentPage((prev) => prev + 1);
@@ -22,13 +28,9 @@ const App = () => {
     setCurrentPage((prev) => prev - 1);
   };
 
-  const SubmitButton = () => {
-    alert("Thank you for your purchase!");
-  };
-
   const changeplan = () => {
     setCurrentPage((prev) => prev - 2);
-  }
+  };
   const render = () => {
     switch (currentPage) {
       case 1:
@@ -52,9 +54,12 @@ const App = () => {
           <Summary
             goToPreviousPage={goToPreviousPage}
             changeplan={changeplan}
-            SubmitButton={SubmitButton}
+            SubmitButton={goToNextPage}
           />
         );
+
+      case 5:
+        return <SuccessMessage />;
     }
   };
 
@@ -72,11 +77,11 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <AddOnProvider>
-    <DataProvider>
-      <PlanProvider>
-      <App />
-      </PlanProvider>
-    </DataProvider>
+      <DataProvider>
+        <PlanProvider>
+          <App />
+        </PlanProvider>
+      </DataProvider>
     </AddOnProvider>
   </StrictMode>
 );

@@ -27,6 +27,15 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
     setIsToggled(!isToggled);
   };
 
+  const validateplan = () => {
+    if (SelectPlan === null) {
+      alert("Please select a plan");
+      return false;
+    }
+    goToNextPage();
+    return true;
+  }
+
   return (
     <div className="plan-component">
       <h1>Select Plan</h1>
@@ -89,7 +98,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
         <button className="back" onClick={goToPreviousPage}>
           Go Back
         </button>
-        <button onClick={goToNextPage}>Next</button>
+        <button onClick={validateplan}>Next</button>
       </div>
     </div>
   );

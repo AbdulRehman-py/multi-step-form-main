@@ -1,0 +1,37 @@
+.success-message {
+  display: flex;
+  flex-direction: column;
+  text-align: center; /* Center text within the container */
+  margin: auto; /* Center the container within its parent */
+  max-width: 100%;
+}
+
+.succes-p {
+  margin: 0 auto; /* Center the paragraph within the container */
+}
+
+.img-s {
+  
+  max-width: 100px;
+  margin: 0 auto;
+
+}
+
+.thank {
+  max-width: 100%;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+
+@media (max-width: 850px) {
+  .img-s{
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 750px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+}

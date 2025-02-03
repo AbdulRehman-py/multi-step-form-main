@@ -1,6 +1,6 @@
-*
-,::before
-,::after {
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
@@ -16,16 +16,9 @@
   --Pastelblue: hsl(228, 100%, 84%);
   --Lightblue: hsl(206, 94%, 87%);
   --Strawberryred: hsl(354, 84%, 57%);
-
-
 }
 
-
-
-
-
 body {
-
   color-scheme: light dark;
   color: var(--White);
   background-color: var(--Lightgray);
@@ -43,7 +36,6 @@ a {
 a:hover {
   color: #535bf2;
 }
-
 
 button {
   border-radius: 8px;
@@ -83,11 +75,7 @@ body {
   height: 100vh;
   max-width: 100%;
   max-height: 100%;
- 
 }
-
-
-
 
 #root {
   display: flex;
@@ -96,13 +84,22 @@ body {
   background-color: var(--White);
   border-radius: 10px;
   padding: 1.5rem;
-  
-  
-   
+  margin: auto;
 }
 
 
-@media(max-width: 600px) {
- 
-  
+.success-change {
+  width: 60%;
+}
+
+@media (max-width: 950px) {
+  .success-change{
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .success-change {
+    width: 100%;
+  }
 }
