@@ -95,10 +95,10 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
         Yearly
       </div>
       <div className="navigation-buttons">
-        <button className="back" onClick={goToPreviousPage}>
+        <button className="go-back" onClick={goToPreviousPage}>
           Go Back
         </button>
-        <button onClick={validateplan}>Next</button>
+        <button className="next-step" onClick={validateplan}>Next</button>
       </div>
     </div>
   );

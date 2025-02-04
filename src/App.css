@@ -10,6 +10,7 @@
   --Pastelblue: hsl(228, 100%, 84%);
   --Lightblue: hsl(206, 94%, 87%);
   --Strawberryred: hsl(354, 84%, 57%);
+  --Pastelbluedark: hsl(228, 53%, 59%);
 
 
 }
@@ -71,8 +72,21 @@ form {
   outline: none;
 }
 
-button {
+.button {
   align-self: flex-end;
   margin-top: 3rem;
 }
 
+
+  
+.button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--Pastelbluedark);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}

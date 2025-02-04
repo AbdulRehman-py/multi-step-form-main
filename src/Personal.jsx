@@ -91,7 +91,7 @@ const Personal = ({ goToNextPage }) => {
               }}
             />
           </div>
-          <button type="button" onClick={handleNextPage}>
+          <button className="button" type="button" onClick={handleNextPage}>
             Next
           </button>
         </form>
