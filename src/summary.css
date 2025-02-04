@@ -11,16 +11,19 @@
     --Pastelblue: hsl(228, 100%, 84%);
     --Lightblue: hsl(206, 94%, 87%);
     --Strawberryred: hsl(354, 84%, 57%);
+    --Purplishbluelight: hsl(243, 21%, 52%);
   
   
   }
 
   h1 {
-    color: var(--Pastelblue);
-    font-size: 1.6rem;
+    color: var(--Marineblue);
+    font-size: 1.5rem;
     padding: 0;
     margin: 0;
     margin-bottom: 0.3rem;
+    font-family:monospace;
+    font-weight: bold;
 
   }
   p {
@@ -45,6 +48,12 @@
   .column {
     display: flex;
     flex-direction: column;
+  }
+
+  .plan-choose {
+    font-size: 1.1rem;
+    color: var(--Marineblue);
+    
   }
 
   .content {
@@ -78,6 +87,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 1rem;
     
   }
   
@@ -99,7 +109,7 @@
   .change {
     cursor: pointer;
     color: var(--Purplishblue);
-    font-size: 0.9rem;
+    font-size: 1rem;
 
   }
 
@@ -107,3 +117,16 @@
     text-decoration: underline;
   }
   
+  .price-plan {
+    color: var(--Marineblue);
+    cursor: pointer;
+  }
+
+  .add-price {
+    color: var(--Purplishbluelight);
+  }
+
+  .total-price {
+    color: var(--Purplishblue);
+    font-size: 1.1rem;
+  }

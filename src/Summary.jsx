@@ -24,6 +24,7 @@ const Summary = ({ goToPreviousPage, SubmitButton, changeplan }) => {
   const mon_yr = plandata.monthly === "/mon" ? "mon" : "yr";
 
   const validtotalprice = mon_yr === "yr" ? totalPrice * 12 : totalPrice;
+  const show_mon_yr = mon_yr === "mon" ? "(monthly)" : "(yearly)";
 
   return (
     <div className="Summary">
@@ -33,7 +34,7 @@ const Summary = ({ goToPreviousPage, SubmitButton, changeplan }) => {
       <div className="Summary__content">
         <div className="content">
           <div className="column">
-            <span className="plan-choose">{plandata.tier}</span>
+            <span className="plan-choose">{`${plandata.tier} ${show_mon_yr}`}</span>
             <span className="change" onClick={changeplan}>
               change
             </span>
@@ -55,8 +56,8 @@ const Summary = ({ goToPreviousPage, SubmitButton, changeplan }) => {
       </div>
 
       <div className="total">
-        <span>Total</span>
-        <span>{`$${validtotalprice}/${mon_yr}`}</span>
+        <span>{`Total ${show_mon_yr}`}</span>
+        <span className="total-price">{`$${validtotalprice}/${mon_yr}`}</span>
       </div>
       <div className="confirm-button">
         <button onClick={goToPreviousPage}>go back</button>

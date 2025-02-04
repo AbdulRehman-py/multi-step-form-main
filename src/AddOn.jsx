@@ -16,7 +16,7 @@ const AddOn = ({goToNextPage,goToPreviousPage }) => {
  
   return (
     <div className="add-on-container">
-      <h1>Pick Add-ons</h1>
+      <h1>Pick add-ons</h1>
       <p>Add-ons help enhance your gaming experience.</p>
       <div className="add-ons">
         <div className="add-on">

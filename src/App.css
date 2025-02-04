@@ -25,19 +25,21 @@
 
 
 .personal-info {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 1rem;
 }
 
 h1 {
-  color: var(--Marineblue);
+  color: var(--Purplishblue);
   padding: 0;
   margin: 0;
 }
 
-p {
+.personal-info p {
   padding: 0.5rem 0;
   margin: 0;
   color: var(--Coolgray);
+  font-size: 0.8rem;
 }
 
 form {

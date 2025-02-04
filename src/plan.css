@@ -4,10 +4,12 @@
     max-width: 100%;
     width: 100%;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 .plan-component {
     color: rgba(107, 123, 148, 0.632);
+    margin-top: 1rem;
 
 }
 
@@ -55,7 +57,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 4rem;
+    margin-top: 1.5rem;
 }
 
 @media (max-width: 600px) {
