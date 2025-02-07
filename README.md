@@ -24,13 +24,13 @@ Browser session storage
 Vercel for deployment
 Screenshots
 Step 1
-<img alt="Step 1" src="https://multi-step-form-main-ashen.vercel.app/design/active-states-step-1.jpg">
+![Step 1](https://multi-step-form-main-ashen.vercel.app/design/active-states-step-1.jpg)
 Step 2
-<img alt="Step 2" src="https://multi-step-form-main-ashen.vercel.app/design/active-states-step-2.jpg">
+![Step 2](https://multi-step-form-main-ashen.vercel.app/design/active-states-step-2.jpg)
 Step 3
-<img alt="Step 3" src="https://multi-step-form-main-ashen.vercel.app/design/active-states-step-3.jpg">
+![Step 3](https://multi-step-form-main-ashen.vercel.app/design/active-states-step-3.jpg)
 Step 4
-<img alt="Step 4" src="https://multi-step-form-main-ashen.vercel.app/design/active-states-step-4.jpg">
+![Step 4](https://multi-step-form-main-ashen.vercel.app/design/active-states-step-4.jpg)
 Prerequisites
 Node.js and npm installed
 A web browser
