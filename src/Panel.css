@@ -5,7 +5,7 @@
 
 .track-panel {
     
-    background-image: url('..assets\images\bg-sidebar-desktop.svg');
+    background-image: url('../assets/images/bg-sidebar-desktop.svg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 2rem 4rem 12rem 3rem;
