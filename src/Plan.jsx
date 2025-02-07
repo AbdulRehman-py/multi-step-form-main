@@ -3,6 +3,9 @@ import { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import "./ToggleSwitch.css";
 import { planContext } from "./plancontext";
+import iconArcade from '../assets/images/icon-arcade.svg';
+import iconAdvanced from '../assets/images/icon-advanced.svg';
+import iconPro from '../assets/images/icon-pro.svg';
 
 const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
   const [isToggled, setIsToggled] = useState(false);
@@ -51,7 +54,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
             }, "arcade");
           }}
         >
-          <img src="../assets/images/icon-arcade.svg" alt="arcade image" />
+          <img src={iconArcade} alt="arcade image" />
           <h3>arcade</h3>
           <small>$9/mo</small>
         </article>
@@ -66,7 +69,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
           }}
         >
           <img
-            src="../assets/images/icon-advanced.svg"
+            src={iconAdvanced}
             alt="advanced plan image"
           />
           <h3>advanced</h3>
@@ -82,7 +85,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
             }, "pro");
           }}
         >
-          <img src="../assets/images/icon-pro.svg" alt="pro plan image" />
+          <img src={iconPro} alt="pro plan image" />
           <h3>pro</h3>
           <small>$15/mo</small>
         </article>
