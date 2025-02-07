@@ -3,7 +3,7 @@ import "./Panel.css";
 const TrackPagePanel = () => {
   return (
     <div className="track-panel">
-      <ol>
+      <ol className="ol-panel">
         <li>Step 1</li>
         <h2>Your Info</h2>
         <li>Step 2</li>
