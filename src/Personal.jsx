@@ -13,7 +13,7 @@ const Personal = ({ goToNextPage }) => {
   const validate = (value, type) => {
     const nameregex = /^[a-zA-Z]+([-'\s][a-zA-Z]+)*$/;
     const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneregex = /^\d{10,11}$/;
+    const phoneregex = /^(\+?\d{1,3}[-.\s]?)?\d{10}$/;
 
     if (type === "name") return nameregex.test(value);
     if (type === "email") return emailregex.test(value);
