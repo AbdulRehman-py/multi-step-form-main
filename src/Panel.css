@@ -67,3 +67,12 @@ h2 {
        font-size:  0.9rem;
     }
 }
+
+@media (max-width: 480px) {
+    .track-panel {
+        background-image: url('assets/images/bg-sidebar-mobile.svg');
+        background-size: fill;
+        padding: 2rem 2.5rem 2rem 3rem;
+
+    }
+}

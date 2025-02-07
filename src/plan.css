@@ -76,3 +76,18 @@ h1 {
     border: 1px solid hsl(354, 84%, 57%);
   }
 
+
+  @media (max-width: 480px) {
+    .plans {
+        flex-direction: column;
+       
+    }
+
+    .plan {
+        padding: 0.5rem 0.5rem 0.5rem 0.9rem;
+    }
+
+  .plans h3 {
+    margin-top: 0.5rem;
+  }
+  }

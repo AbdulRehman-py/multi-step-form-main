@@ -131,3 +131,10 @@
     color: var(--Purplishblue);
     font-size: 1.1rem;
   }
+  @media (max-width: 600px) {
+    .confirm-button {
+      margin-top: 2rem;
+      padding: 0.9rem;
+
+    }
+  }

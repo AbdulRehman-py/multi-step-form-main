@@ -87,3 +87,11 @@ body {
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  #root {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  
+}
