@@ -5,7 +5,7 @@
 
 .track-panel {
     
-    background-image: url('assets/images/bg-sidebar-desktop.svg');
+    background-image: url('..assets/images/bg-sidebar-desktop.svg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 2rem 4rem 12rem 3rem;
@@ -70,7 +70,7 @@ h2 {
 
 @media (max-width: 480px) {
     .track-panel {
-        background-image: url('assets/images/bg-sidebar-mobile.svg');
+        background-image: url('../assets/images/bg-sidebar-mobile.svg');
         background-size: fill;
         padding: 2rem 2.5rem 2rem 3rem;
 
