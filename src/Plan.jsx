@@ -51,7 +51,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
             }, "arcade");
           }}
         >
-          <img src="assets/images/icon-arcade.svg" alt="arcade image" />
+          <img src="..assets\images\icon-arcade.svg" alt="arcade image" />
           <h3>arcade</h3>
           <small>$9/mo</small>
         </article>
@@ -66,7 +66,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
           }}
         >
           <img
-            src="assets/images/icon-advanced.svg"
+            src="..assets\images\icon-advanced.svg"
             alt="advanced plan image"
           />
           <h3>advanced</h3>
@@ -82,7 +82,7 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
             }, "pro");
           }}
         >
-          <img src="assets/images/icon-pro.svg" alt="pro plan image" />
+          <img src="..assets\images\icon-pro.svg" alt="pro plan image" />
           <h3>pro</h3>
           <small>$15/mo</small>
         </article>
