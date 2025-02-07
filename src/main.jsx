@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 import AddOn from "./AddOn.jsx";
 import Personal from "./Personal.jsx";
@@ -14,11 +14,21 @@ import SuccessMessage from "./SuccessMessage.jsx";
 
 const App = () => {
   const root_div = document.getElementById("root");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(() => {
+    const savedPage = sessionStorage.getItem("currentPage");
+    return savedPage ? parseInt(savedPage, 10) : 1;
+  });
 
-  if (currentPage == 5) {
-    root_div.classList.add("success-change");
-  }
+  useEffect(() => {
+    sessionStorage.setItem("currentPage", currentPage);
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (currentPage === 5) {
+      sessionStorage.clear();
+      root_div.classList.add("success-change");
+    }
+  }, [currentPage, root_div]);
 
   const goToNextPage = () => {
     setCurrentPage((prev) => prev + 1);
@@ -31,6 +41,7 @@ const App = () => {
   const changeplan = () => {
     setCurrentPage((prev) => prev - 2);
   };
+
   const render = () => {
     switch (currentPage) {
       case 1:
@@ -57,9 +68,10 @@ const App = () => {
             SubmitButton={goToNextPage}
           />
         );
-
       case 5:
         return <SuccessMessage />;
+      default:
+        return <Personal goToNextPage={goToNextPage} />;
     }
   };
 

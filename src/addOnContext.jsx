@@ -1,17 +1,24 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 
 export const AddOnContext = createContext();
 
 export const AddOnProvider = ({ children }) => {
-  const [addOns, setAddOns] = useState({
-    onlineservice: "",
-    onlineprice: "",
-    largerstorage: "",
-    largerprice: "",
-    customizableprofile: "",
-    customizableprice: "",
+  const [addOns, setAddOns] = useState(() => {
+    const savedData = sessionStorage.getItem("addOns");
+    return savedData ? JSON.parse(savedData) : {
+      onlineservice: "",
+      onlineprice: "",
+      largerstorage: "",
+      largerprice: "",
+      customizableprofile: "",
+      customizableprice: "",
+    };
   });
+
+  useEffect(() => {
+    sessionStorage.setItem("addOns", JSON.stringify(addOns));
+  }, [addOns]);
 
   const handleAddOns = (name, value, price) => {
     setAddOns((prevAddOns) => ({
