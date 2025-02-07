@@ -3,8 +3,11 @@ import { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { DataContext } from "./StatePersonal.jsx";
 
+
+
 const Personal = ({ goToNextPage }) => {
   const { personalInfo, setPersonalInfo } = useContext(DataContext);
+ 
 
   const [isValidName, setIsValidName] = useState(true);
   const [isValidEmail, setIsValidEmail] = useState(true);
@@ -33,11 +36,14 @@ const Personal = ({ goToNextPage }) => {
 
     if (isValidName && isValidEmail && isValidPhone) {
       goToNextPage();
+
     } else {
       // Highlight the invalid inputs
+      
     }
   };
 
+  
   return (
     <>
       <div className="personal-info">
@@ -45,7 +51,10 @@ const Personal = ({ goToNextPage }) => {
         <p>Please provide your name, email address, and phone number.</p>
         <form>
           <div className="input-container">
-            <label htmlFor="name">Name</label>
+            <div className="double-label">
+              <label htmlFor="name">Name</label>
+              <span className="error" style={{ color: isValidName ? "white" : "red" }}>invalid input name</span>
+            </div>
             <input
               type="text"
               id="name"
@@ -60,7 +69,11 @@ const Personal = ({ goToNextPage }) => {
             />
           </div>
           <div className="input-container">
+            <div className="email-label">
             <label htmlFor="email">Email Address</label>
+            <span className="error" style={{ color: isValidEmail ? "white" : "red" }}>invalid input email</span>
+            </div>
+
             <input
               type="email"
               id="email"
@@ -76,7 +89,10 @@ const Personal = ({ goToNextPage }) => {
             />
           </div>
           <div className="input-container">
+            <div className="phone-label">
             <label htmlFor="phone">Phone Number</label>
+            <span className="error" style={{ color: isValidPhone ? "white" : "red" }} >invalid input phone</span>
+            </div>
             <input
               type="tel"
               id="phone"
@@ -85,6 +101,7 @@ const Personal = ({ goToNextPage }) => {
               onChange={(e) => {
                 setPersonalInfo({ ...personalInfo, phone: e.target.value });
                 setIsValidPhone(true); // Reset validation on change
+                
               }}
               style={{
                 border: isValidPhone ? "1px solid lightblue" : "1px solid red",

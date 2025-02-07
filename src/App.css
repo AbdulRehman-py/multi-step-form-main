@@ -11,6 +11,7 @@
   --Lightblue: hsl(206, 94%, 87%);
   --Strawberryred: hsl(354, 84%, 57%);
   --Pastelbluedark: hsl(228, 53%, 59%);
+  --Strawberryredlight: hsl(354, 43%, 58%);
 
 
 }
@@ -89,4 +90,45 @@ form {
   background-color: var(--Pastelbluedark);
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+
+.double-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  
+}
+
+.error {
+  color: var(--Strawberryredlight);
+  font-size: 0.7rem;
+  padding-bottom: 0.3rem;
+  font-family: cursive;
+  
+}
+
+.email-label {
+ 
+  justify-content: space-between;
+  font-family: cursive;
+  display: flex;
+  align-items: flex-end;
+}
+
+.email-label label {
+  padding-top: 0.5rem;
+  margin: 0;
+}
+
+.phone-label {
+  
+  display: flex;
+  justify-content: space-between;
+  font-family: cursive;
+  align-items: flex-end;
+}
+.phone-label label {
+  padding-top: 0.5rem;
+  margin: 0;
 }
