@@ -52,3 +52,12 @@ A user-friendly multi-step form that guides users through a series of steps to c
 Working on this project, I learned how to effectively use CSS Grid and Flexbox to create responsive layouts. I also improved my skills in React, particularly in managing state and using hooks. Additionally, I gained experience in using browser local storage and session storage to persist user data across sessions.
 
 
+Clone This repo
+
+git clone https://github.com/AbdulRehman-py/multi-step-form-main.git
+
+cd multi-step-form-main
+
+npm install
+
+npm start
