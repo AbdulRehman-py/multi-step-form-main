@@ -17,21 +17,20 @@ A user-friendly multi-step form that guides users through a series of steps to c
 ## Screenshots
 
 ### Step 1
-![Step 1](../screenshots/active-states-step-1.jpg)
+<img src="../design\active-states-step-1.jpg" alt="Step 1" />
 
 ### Step 2
-![Step 2](../screenshots/active-states-step-2.jpg)
+<img src="../design\active-states-step-1.jpg" alt="Step 2" />
 
 ### Step 3
-![Step 3](../screenshots/active-states-step-3.jpg)
+<img src="../design\active-states-step-1.jpg" alt="Step 3" />
 
 ### Step 4
-![Step 4](../screenshots/active-states-step-4.jpg)
+<img src="../design\active-states-step-1.jpg" alt="Step 4" />
 
 ## Links
 
-- Live Site URL: [https://multi-step-form-main-ashen.vercel.app/](https://multi-step-form-main-ashen.vercel.app/)
-
+- Live Site URL: https://multi-step-form-main-ashen.vercel.app/
 ## Built with
 
 - Semantic HTML5 markup
@@ -51,13 +50,3 @@ A user-friendly multi-step form that guides users through a series of steps to c
 
 Working on this project, I learned how to effectively use CSS Grid and Flexbox to create responsive layouts. I also improved my skills in React, particularly in managing state and using hooks. Additionally, I gained experience in using browser local storage and session storage to persist user data across sessions.
 
-
-Clone This repo
-
-git clone https://github.com/AbdulRehman-py/multi-step-form-main.git
-
-cd multi-step-form-main
-
-npm install
-
-npm start
