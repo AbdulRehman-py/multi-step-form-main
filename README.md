@@ -16,17 +16,7 @@ A user-friendly multi-step form that guides users through a series of steps to c
 
 ## Screenshots
 
-### Step 1
-<img src="../design\active-states-step-1.jpg" alt="Step 1" />
 
-### Step 2
-<img src="../design\active-states-step-1.jpg" alt="Step 2" />
-
-### Step 3
-<img src="../design\active-states-step-1.jpg" alt="Step 3" />
-
-### Step 4
-<img src="../design\active-states-step-1.jpg" alt="Step 4" />
 
 ## Links
 
