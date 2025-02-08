@@ -16,11 +16,26 @@ A user-friendly multi-step form that guides users through a series of steps to c
 
 ## Screenshots
 
+### Step 1
+![Step 1](https://github.com/AbdulRehman-py/multi-step-form-main/blob/main/design/IMG%201.jpg)
+
+### Step 2
+![Step 2](https://github.com/AbdulRehman-py/multi-step-form-main/blob/main/design/IMG%202.jpg)
+
+### Step 3
+![Step 3](https://github.com/AbdulRehman-py/multi-step-form-main/blob/main/design/IMG%203.jpg)
+
+### Step 4
+![Step 4](https://github.com/AbdulRehman-py/multi-step-form-main/blob/main/design/IMG%204.jpg)
+
+### Step 5
+![Step 5](https://github.com/AbdulRehman-py/multi-step-form-main/blob/main/design/IMG%205.jpg)
 
 
-## Links
 
 - Live Site URL: https://multi-step-form-main-ashen.vercel.app/
+
+
 ## Built with
 
 - Semantic HTML5 markup
