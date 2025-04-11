@@ -4,7 +4,7 @@ A user-friendly multi-step form that guides users through a series of steps to c
 
 ## Features
 
-- **Step-by-Step Navigation**: Users can complete each step of the sequence, ensuring that they provide all necessary information in a structured manner.
+- **Step-by-Step Navigation: Users can complete each step of the sequence, ensuring that they provide all necessary information in a structured manner.
 - **Back Navigation**: Users can go back to a previous step to update their selections, providing flexibility and control over their input.
 - **Summary and Confirmation**: Users can see a summary of their selections on the final step and confirm their order, ensuring accuracy before submission.
 - **Responsive Design**: The form adapts to different screen sizes, providing an optimal layout for both desktop and mobile devices.
