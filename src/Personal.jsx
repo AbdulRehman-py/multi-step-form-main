@@ -1,98 +1,171 @@
 import "./App.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { DataContext } from "./StatePersonal.jsx";
 
 const Personal = ({ goToNextPage }) => {
   const { personalInfo, setPersonalInfo } = useContext(DataContext);
 
-  const [isValidName, setIsValidName] = useState(true);
-  const [isValidEmail, setIsValidEmail] = useState(true);
-  const [isValidPhone, setIsValidPhone] = useState(true);
+  const [errors, setErrors] = useState({
+    name: { isValid: true, message: "" },
+    email: { isValid: true, message: "" },
+    phone: { isValid: true, message: "" }
+  });
 
-  const validate = (value, type) => {
+  const validateField = (value, type) => {
     const nameregex = /^[a-zA-Z]+([-'\s][a-zA-Z]+)*$/;
     const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneregex = /^(\+?\d{1,3}[-.\s]?)?\d{10}$/;
 
-    if (type === "name") return nameregex.test(value);
-    if (type === "email") return emailregex.test(value);
-    if (type === "phone") return phoneregex.test(value);
-    return false;
+    switch (type) {
+      case "name":
+        if (!value.trim()) {
+          return { isValid: false, message: "Name is required" };
+        }
+        if (!nameregex.test(value)) {
+          return { isValid: false, message: "Please enter a valid name" };
+        }
+        return { isValid: true, message: "" };
+
+      case "email":
+        if (!value.trim()) {
+          return { isValid: false, message: "Email is required" };
+        }
+        if (!emailregex.test(value)) {
+          return { isValid: false, message: "Please enter a valid email address" };
+        }
+        return { isValid: true, message: "" };
+
+      case "phone":
+        if (!value.trim()) {
+          return { isValid: false, message: "Phone number is required" };
+        }
+        if (!phoneregex.test(value)) {
+          return { isValid: false, message: "Please enter a valid phone number" };
+        }
+        return { isValid: true, message: "" };
+
+      default:
+        return { isValid: true, message: "" };
+    }
+  };
+
+  const handleInputChange = (e, field) => {
+    const value = e.target.value;
+    setPersonalInfo({ ...personalInfo, [field]: value });
+    
+    // Validate after a short delay to avoid too frequent validation
+    const validation = validateField(value, field);
+    setErrors(prev => ({
+      ...prev,
+      [field]: validation
+    }));
   };
 
   const handleNextPage = () => {
-    const isValidName = validate(personalInfo.name, "name");
-    const isValidEmail = validate(personalInfo.email, "email");
-    const isValidPhone = validate(personalInfo.phone, "phone");
+    // Validate all fields
+    const nameValidation = validateField(personalInfo.name, "name");
+    const emailValidation = validateField(personalInfo.email, "email");
+    const phoneValidation = validateField(personalInfo.phone, "phone");
 
-    setIsValidName(isValidName);
-    setIsValidEmail(isValidEmail);
-    setIsValidPhone(isValidPhone);
+    const newErrors = {
+      name: nameValidation,
+      email: emailValidation,
+      phone: phoneValidation
+    };
 
-    if (isValidName && isValidEmail && isValidPhone) {
+    setErrors(newErrors);
+
+    if (nameValidation.isValid && emailValidation.isValid && phoneValidation.isValid) {
       goToNextPage();
     }
   };
+
+  // Validate on initial load if there's saved data
+  useEffect(() => {
+    if (personalInfo.name || personalInfo.email || personalInfo.phone) {
+      setErrors({
+        name: validateField(personalInfo.name, "name"),
+        email: validateField(personalInfo.email, "email"),
+        phone: validateField(personalInfo.phone, "phone")
+      });
+    }
+  }, []);
 
   return (
     <div className="personal-info">
       <h1>Personal Info</h1>
       <p>Please provide your name, email address, and phone number.</p>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <div className="input-container">
           <div className="double-label">
             <label htmlFor="name">Name</label>
-            <span className="error" style={{ color: isValidName ? "white" : "red" }}>invalid input name</span>
+            <span 
+              className="error" 
+              style={{ 
+                color: errors.name.isValid ? "transparent" : "red",
+                visibility: errors.name.message ? "visible" : "hidden"
+              }}
+            >
+              {errors.name.message}
+            </span>
           </div>
           <input
             type="text"
             id="name"
             placeholder="eg. Roger Clark"
             value={personalInfo.name}
-            onChange={(e) =>
-              setPersonalInfo({ ...personalInfo, name: e.target.value })
-            }
+            onChange={(e) => handleInputChange(e, "name")}
             style={{
-              border: isValidName ? "1px solid lightblue" : "1px solid red",
+              border: errors.name.isValid ? "1px solid lightblue" : "1px solid red",
             }}
           />
         </div>
         <div className="input-container">
           <div className="email-label">
             <label htmlFor="email">Email Address</label>
-            <span className="error" style={{ color: isValidEmail ? "white" : "red" }}>invalid input email</span>
+            <span 
+              className="error" 
+              style={{ 
+                color: errors.email.isValid ? "transparent" : "red",
+                visibility: errors.email.message ? "visible" : "hidden"
+              }}
+            >
+              {errors.email.message}
+            </span>
           </div>
           <input
             type="email"
             id="email"
             placeholder="RogerClark@gmail.com"
             value={personalInfo.email}
-            onChange={(e) => {
-              setPersonalInfo({ ...personalInfo, email: e.target.value });
-              setIsValidEmail(true); // Reset validation on change
-            }}
+            onChange={(e) => handleInputChange(e, "email")}
             style={{
-              border: isValidEmail ? "1px solid lightblue" : "1px solid red",
+              border: errors.email.isValid ? "1px solid lightblue" : "1px solid red",
             }}
           />
         </div>
         <div className="input-container">
           <div className="phone-label">
             <label htmlFor="phone">Phone Number</label>
-            <span className="error" style={{ color: isValidPhone ? "white" : "red" }}>invalid input phone</span>
+            <span 
+              className="error" 
+              style={{ 
+                color: errors.phone.isValid ? "transparent" : "red",
+                visibility: errors.phone.message ? "visible" : "hidden"
+              }}
+            >
+              {errors.phone.message}
+            </span>
           </div>
           <input
             type="tel"
             id="phone"
             placeholder="eg. +1 301 525 987"
             value={personalInfo.phone}
-            onChange={(e) => {
-              setPersonalInfo({ ...personalInfo, phone: e.target.value });
-              setIsValidPhone(true); // Reset validation on change
-            }}
+            onChange={(e) => handleInputChange(e, "phone")}
             style={{
-              border: isValidPhone ? "1px solid lightblue" : "1px solid red",
+              border: errors.phone.isValid ? "1px solid lightblue" : "1px solid red",
             }}
           />
         </div>

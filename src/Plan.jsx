@@ -20,6 +20,14 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
     sessionStorage.setItem("planToggle", JSON.stringify(isToggled));
   }, [isToggled]);
 
+  const getPriceForPlan = (basePriceMonthly) => {
+    const yearlyPrice = basePriceMonthly * 12;
+    return {
+      price: isToggled ? `$${yearlyPrice}` : `$${basePriceMonthly}`,
+      monthly: isToggled ? "/yr" : "/mo"
+    };
+  };
+
   const handleSelectPlan = (plan) => {
     setPlandata((prevPlan) => ({
       ...prevPlan,
@@ -31,15 +39,15 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
     setIsToggled(!isToggled);
     // Update prices when toggling
     if (plandata.tier) {
-      const prices = {
-        arcade: isToggled ? "9" : "90",
-        advanced: isToggled ? "12" : "120",
-        pro: isToggled ? "15" : "150"
+      const basePrices = {
+        arcade: 9,
+        advanced: 12,
+        pro: 15
       };
+      const newPrice = getPriceForPlan(basePrices[plandata.tier]);
       setPlandata(prev => ({
         ...prev,
-        price: `$${prices[prev.tier]}`,
-        monthly: !isToggled ? "/yr" : "/mo"
+        ...newPrice
       }));
     }
   };
@@ -53,8 +61,8 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
     return true;
   };
 
-  const getPrice = (base) => {
-    return isToggled ? `$${base * 10}/yr` : `$${base}/mo`;
+  const getDisplayPrice = (basePrice) => {
+    return isToggled ? `$${basePrice * 12}/yr` : `$${basePrice}/mo`;
   };
 
   return (
@@ -65,51 +73,51 @@ const SelectPlan = ({ goToPreviousPage, goToNextPage }) => {
         <article
           className={`plan plan1 ${plandata.tier === "arcade" ? "selected" : ""}`}
           onClick={() => {
+            const priceInfo = getPriceForPlan(9);
             handleSelectPlan({
               tier: "arcade",
-              price: isToggled ? "$90" : "$9",
-              monthly: isToggled ? "/yr" : "/mo",
+              ...priceInfo
             });
           }}
         >
           <img src={iconArcade} alt="arcade image" />
           <h3>arcade</h3>
           <div className="price-container">
-            <small>{getPrice(9)}</small>
+            <small>{getDisplayPrice(9)}</small>
             {isToggled && <span className="yearly-bonus">2 months free</span>}
           </div>
         </article>
         <article
-          className={`plan ${isToggled ? "plan2" : ""} ${plandata.tier === "advanced" ? "selected" : ""}`}
+          className={`plan plan2 ${plandata.tier === "advanced" ? "selected" : ""}`}
           onClick={() => {
+            const priceInfo = getPriceForPlan(12);
             handleSelectPlan({
               tier: "advanced",
-              price: isToggled ? "$120" : "$12",
-              monthly: isToggled ? "/yr" : "/mo",
+              ...priceInfo
             });
           }}
         >
           <img src={iconAdvanced} alt="advanced plan image" />
           <h3>advanced</h3>
           <div className="price-container">
-            <small>{getPrice(12)}</small>
+            <small>{getDisplayPrice(12)}</small>
             {isToggled && <span className="yearly-bonus">2 months free</span>}
           </div>
         </article>
         <article
           className={`plan plan3 ${plandata.tier === "pro" ? "selected" : ""}`}
           onClick={() => {
+            const priceInfo = getPriceForPlan(15);
             handleSelectPlan({
               tier: "pro",
-              price: isToggled ? "$150" : "$15",
-              monthly: isToggled ? "/yr" : "/mo",
+              ...priceInfo
             });
           }}
         >
           <img src={iconPro} alt="pro plan image" />
           <h3>pro</h3>
           <div className="price-container">
-            <small>{getPrice(15)}</small>
+            <small>{getDisplayPrice(15)}</small>
             {isToggled && <span className="yearly-bonus">2 months free</span>}
           </div>
         </article>
