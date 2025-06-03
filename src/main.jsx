@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./index.css";
 import AddOn from "./AddOn.jsx";
 import Personal from "./Personal.jsx";
-import TrackPagePanel from "./TrackPagePanel.jsx";
+import TrackPagePanel from "./Panel.jsx";  // Make sure this path matches your Panel.jsx file
 import Plan from "./Plan.jsx";
 import Summary from "./Summary.jsx";
 import { createRoot } from "react-dom/client";
@@ -77,7 +77,7 @@ const App = () => {
 
   return (
     <>
-      <TrackPagePanel />
+      <TrackPagePanel currentPage={currentPage} />
       {render()}
     </>
   );
@@ -96,4 +96,4 @@ root.render(
       </DataProvider>
     </AddOnProvider>
   </StrictMode>
-);
+); 
